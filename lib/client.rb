@@ -1,3 +1,1 @@
-class client
 
-end
