@@ -10,7 +10,7 @@ describe('adding a new stylist', {:type => :feature})do
     # click_link('Add New Patron')
     fill_in('Stylist Name', :with => 'betty')
     click_button('Add stylist')
-    expect(page).to have_content('Welcome to the To My Hair Salon')
+    expect(page).to have_content('Welcome to the Hair Salon')
   end
 end
 
