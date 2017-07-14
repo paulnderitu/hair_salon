@@ -31,4 +31,14 @@ describe("#id")do
   end
 end
 
+describe("#==") do
+    it("is the same stylist if has the same name") do
+      stylist1 = Stylist.new({:name => "betty", :id => nil})
+      stylist2 = Stylist.new({:name => "betty", :id => nil})
+      expect(stylist1).to(eq(stylist2))
+    end
+  end
+
+  
+
 end
