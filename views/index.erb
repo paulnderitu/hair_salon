@@ -37,8 +37,8 @@
     <p>Click on a stylist to see his/her clients:</p>
 
     <ul>
-      <% @stylist.each do |stylist| %>
-      <li><a href="/stylist/<%= stylist.id() %>"><%= stylists.name() %></a></li>
+      <% @stylists.each do |stylist| %>
+      <li><a href="/stylists/<%= stylist.id() %>"><%= stylist.name() %></a></li>
       <% end %>
     </ul>
     <% else %>
