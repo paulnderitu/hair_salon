@@ -18,6 +18,17 @@ define_singleton_method(:all) do
       stylists
     end
 
+    define_singleton_method(:find) do |id|
+      found_stylist = nil
+      Stylist.all().each() do |stylist|
+        if stylist.id().==(id)
+          found_stylist = stylist
+        end
+      end
+      found_stylist
+    end
+
+
 define_method(:clients) do
   stylist_clients = []
   clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")

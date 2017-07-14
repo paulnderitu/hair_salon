@@ -36,10 +36,10 @@ describe("#stylist_id")do
 end
 
 describe("#==") do
-  it("is the same book is has same title, author and patron ID")do
-    book1 = Book.new({:title => "true colors", :author => "pau", :patron_id => 1})
-    book2 = Book.new({:title => "true colors", :author => "pau", :patron_id => 1})
-    expect(book1).to(eq(book2))
+  it("is the same client if has same name, contact and stylist ID")do
+    client1 = Client.new({:name => "betty", :contact => "0725", :stylist_id => 1})
+    client2 = Client.new({:name => "betty", :contact => "0725", :stylist_id => 1})
+    expect(client1).to(eq(client2))
   end
   end
 end
