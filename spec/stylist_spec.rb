@@ -39,6 +39,14 @@ describe("#==") do
     end
   end
 
-  
+  describe(".find")do
+  it("returns a stylist by stylist ID") do
+    test_stylist = Stylist.new({:name => "betty", :id => nil})
+    test_stylist.save()
+    test_stylist2 = Stylist.new({:name => "sherry", :id => nil})
+    test_stylist2.save()
+    expect(Stylist.find(test_stylist2.id())).to(eq(test_stylist2))
+  end
+end
 
 end
