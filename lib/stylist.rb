@@ -12,7 +12,7 @@ define_singleton_method(:all) do
       stylists = []
       returned_stylists.each() do |stylist|
         name = stylist.fetch("name")
-        id = stylist.fgetch("id").to_i()
+        id = stylist.fetch("id").to_i()
         stylists.push(Stylist.new({:name => name, :id => id}))
       end
       stylists
@@ -32,10 +32,10 @@ define_method(:clients) do
   stylist_clients = []
   clients = DB.exec("SELECT * FROM clients WHERE stylist_id = #{self.id()};")
       clients.each() do |client|
-        name = client.fetch("name")
-        contact = contact.fetch("contact")
+        name = client.fetch("client_name")
+        contact = client.fetch("contact")
         stylist_id = client.fetch("stylist_id").to_i()
-        stylist_clients.push(Client.new({:name => name, :contact => contact, :stylist_id => stylist_id}))
+        stylist_clients.push(Client.new({:client_name => name, :contact => contact, :stylist_id => stylist_id}))
       end
       stylist_clients
 end

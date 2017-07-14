@@ -36,30 +36,30 @@ get("/stylists/:id") do
 end
 
 post("/clients") do
-    name = params.fetch("name")
+    name = params.fetch("client_name")
     contact = params.fetch("contact")
     stylist_id = params.fetch("stylist_id").to_i()
-    client = Client.new({:name => name, :contact => contact, :stylist_id => stylist_id})
+    client = Client.new({:client_name => name, :contact => contact, :stylist_id => stylist_id})
     client.save()
     @stylist = Stylist.find(stylist_id)
     erb(:stylist)
   end
 
-get("/patrons/:id/edit")do
-  @patron = Patron.find(params.fetch("id").to_i())
-  erb(:patron_edit)
+get("/stylists/:id/edit")do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  erb(:stylist_edit)
 end
 
-patch("/patrons/:id")do
+patch("/stylists/:id")do
   name = params.fetch("name")
-  @patron = Patron.find(params.fetch("id").to_i())
-  @patron.update({:name => name})
-  erb(:patron)
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.update({:name => name})
+  erb(:stylist)
 end
 
-delete("/patrons/:id")do
-  @patron = Patron.find(params.fetch("id").to_i())
-  @patron.delete()
-  @patrons = Patron.all()
+delete("/stylists/:id")do
+  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist.delete()
+  @stylists = Stylist.all()
   erb(:index)
 end

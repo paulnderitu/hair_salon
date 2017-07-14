@@ -1,9 +1,9 @@
 class Client
 
-attr_reader(:name, :contact, :stylist_id)
+attr_reader(:client_name, :contact, :stylist_id)
 
 define_method(:initialize) do |attributes|
-  @name = attributes.fetch(:name)
+  @client_name = attributes.fetch(:client_name)
   @contact = attributes.fetch(:contact)
   @stylist_id = attributes.fetch(:stylist_id)
 end
@@ -12,19 +12,19 @@ define_singleton_method(:all) do
     returned_clients = DB.exec("SELECT * FROM clients;")
     clients = []
     returned_clients.each() do |client|
-      name = client.fetch("name")
-      contact = book.fetch("0725")
+      client_name = client.fetch("client_name")
+      contact = client.fetch("contact")
       stylist_id = client.fetch("stylist_id").to_i() # The information comes out of the database as a string
-      clients.push(Client.new({:name => name, :contact => contact, :stylist_id => stylist_id}))
+      clients.push(Client.new({:client_name => client_name, :contact => contact, :stylist_id => stylist_id}))
     end
     clients
   end
 
 define_method(:save)do
-  DB.exec("INSERT INTO clients (name, contact, stylist_id) VALUES ('#{@name}', '#{@contact}', #{@stylist_id});")
+  DB.exec("INSERT INTO clients (client_name, contact, stylist_id) VALUES ('#{@client_name}', '#{@contact}', #{@stylist_id});")
 end
 
 define_method(:==) do |another_client|
-        self.name().==(another_client.name()).&(self.stylist_id().==(another_client.stylist_id()))
+        self.client_name().==(another_client.client_name()).&(self.stylist_id().==(another_client.stylist_id()))
    end
 end

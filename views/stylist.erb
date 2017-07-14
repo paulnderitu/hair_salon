@@ -9,7 +9,7 @@
 
     <ul>
       <% @stylist.clients().each() do |client| %>
-        <li><%= client.name() %> <%= client.contact() %></li>
+        <li><%= client.client_name() %> <%= client.contact() %></li>
       <% end %>
     </ul>
 
@@ -17,7 +17,7 @@
       <p>There are no clients for this stylist!</p>
     <% end %>
 
-<!-- <p><a href="/stylists/<%= @stylist.id() %>/edit">Edit<%= @stylist.name() %>stylist</a></p> -->
+<p><a href="/stylists/<%= @stylist.id() %>/edit">Edit<%= @stylist.name() %>stylist</a></p>
 
   <hr>
     <a href="/">Return to Main Page</a>
